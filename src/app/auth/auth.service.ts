@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { ApiService } from '../core/api.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class AuthService {
 
   url = 'http://localhost:5002/user';
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private router: Router) {}
 
   signup(details: ISignupRequest): Observable<IAuthResponse> {
     return this.apiService
@@ -25,6 +26,7 @@ export class AuthService {
           this.name = res.data.name;
           this.email = res.data.email;
           this.userId = res.data.userId;
+          this.router.navigate(['']);
         })
       );
   }
@@ -38,8 +40,16 @@ export class AuthService {
           this.name = res.data.name;
           this.email = res.data.email;
           this.userId = res.data.userId;
+          this.router.navigate(['']);
         })
       );
+  }
+
+  logout() {
+    this.token = null;
+    this.email = null;
+    this.name = null;
+    this.router.navigate(['auth', 'login']);
   }
 }
 
