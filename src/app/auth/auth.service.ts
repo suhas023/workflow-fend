@@ -17,6 +17,12 @@ export class AuthService {
 
   constructor(private apiService: ApiService, private router: Router) {}
 
+  init() {
+    this.token = localStorage.getItem('token');
+    this.email = localStorage.getItem('email');
+    this.userId = localStorage.getItem('userId');
+  }
+
   signup(details: ISignupRequest): Observable<IAuthResponse> {
     return this.apiService
       .callApi<IAuthResponse>('POST', `${this.url}/signup`, details)
@@ -26,6 +32,9 @@ export class AuthService {
           this.name = res.data.name;
           this.email = res.data.email;
           this.userId = res.data.userId;
+          localStorage.setItem('token', this.token);
+          localStorage.setItem('email', this.email);
+          localStorage.setItem('userId', this.userId);
           this.router.navigate(['']);
         })
       );
@@ -40,6 +49,9 @@ export class AuthService {
           this.name = res.data.name;
           this.email = res.data.email;
           this.userId = res.data.userId;
+          localStorage.setItem('token', this.token);
+          localStorage.setItem('email', this.email);
+          localStorage.setItem('userId', this.userId);
           this.router.navigate(['']);
         })
       );
@@ -49,6 +61,7 @@ export class AuthService {
     this.token = null;
     this.email = null;
     this.name = null;
+    localStorage.clear();
     this.router.navigate(['auth', 'login']);
   }
 }

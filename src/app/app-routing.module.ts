@@ -10,6 +10,12 @@ const routes: Routes = [
     canLoad: [NoAuthGuard],
     canActivate: [NoAuthGuard],
   },
+  {
+    path: '',
+    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
+    canLoad: [AuthGuard],
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
