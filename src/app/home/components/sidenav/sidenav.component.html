@@ -1,1 +1,12 @@
-<p>sidenav works!</p>
+<h3>WORK • FLOW</h3>
+
+<div class="items">
+  <button
+    *ngFor="let item of items"
+    [class.selected]="selected === item.name"
+    matRipple
+    (click)="onClick.emit(item)"
+  >
+    {{ item.name }}
+  </button>
+</div>

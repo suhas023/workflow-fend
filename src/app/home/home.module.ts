@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { Routes, RouterModule } from '@angular/router';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { MatRippleModule } from '@angular/material/core';
 
 const routes: Routes = [{ path: '', component: HomeComponent }];
 
 @NgModule({
   declarations: [HomeComponent, SidenavComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes), MatRippleModule],
 })
 export class HomeModule {}

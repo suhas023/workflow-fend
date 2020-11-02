@@ -14,3 +14,12 @@ body {
   margin: 0px;
   box-sizing: border-box;
 }
+
+button:focus,
+button:active,
+.indexed {
+  outline: 0 !important;
+  -moz-outline-style: none !important;
+  outline-style: none !important;
+  outline: none !important;
+}
