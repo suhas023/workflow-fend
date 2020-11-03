@@ -1,1 +1,58 @@
-<p>create-workflow works!</p>
+<app-page-title>Create Workflow</app-page-title>
+
+<p *ngIf="isLoading">Loading...</p>
+<p *ngIf="isError">Error Occurred...</p>
+
+<ng-container *ngIf="!isLoading && !isError">
+  <div class="card">
+    <h4>Details</h4>
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input matInput [(ngModel)]="title" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea matInput [(ngModel)]="description"></textarea>
+    </mat-form-field>
+  </div>
+
+  <div class="card" *ngFor="let level of levels; let index = index">
+    <div class="header">
+      <h4>Level #{{ index + 1 }}</h4>
+      <button mat-icon-button class="delete-level" color="warn" (click)="deleteLevel(index)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Approval Type</mat-label>
+      <mat-select [(value)]="level.type">
+        <mat-option *ngFor="let type of approvalTypes" [value]="type">
+          {{ type }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="user-flow" *ngIf="level.userIds.length">
+      <p>Approval Flow:</p>
+      <div class="users">
+        <div *ngFor="let id of level.userIds; let last = last">
+          <span class="user">
+            {{ userMap.byId[id].name }}
+          </span>
+          <span class="symbol" *ngIf="!last">{{
+            approvalSymbols[level.type] | uppercase
+          }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="users-block">
+      <button mat-raised-button (click)="addUsers(index)" class="add-users">
+        {{ level.userIds.length ? "Edit User List" : "Add Users" }}
+      </button>
+    </div>
+  </div>
+
+  <button class="add-level" mat-raised-button (click)="addLevel()">
+    ADD LEVEL
+  </button>
+</ng-container>

@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Select Users</h2>
+<mat-dialog-content class="mat-typography">
+  <p *ngIf="!userMap.allIds">No Users Found</p>
+  <mat-selection-list [(ngModel)]="selected">
+    <mat-list-option *ngFor="let id of userMap.allIds" [value]="id">
+      <div class="item">
+        <strong>{{ userMap.byId[id].name }}</strong
+        ><small>({{ userMap.byId[id].email }})</small>
+      </div>
+    </mat-list-option>
+  </mat-selection-list>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button
+    mat-button
+    [mat-dialog-close]="selected"
+    cdkFocusInitial
+    [disabled]="!selected.length"
+  >
+    Done
+  </button>
+</mat-dialog-actions>

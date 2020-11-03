@@ -1,0 +1,19 @@
+h2 {
+  font-weight: 500;
+  color: #646464;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+}
+
+.item strong {
+  font-weight: 500;
+  margin-right: 12px;
+}
+
+.item small {
+  font-size: 14px;
+  color: #646464;
+}
