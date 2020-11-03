@@ -1,3 +1,9 @@
 <div class="sidenav">
-  <app-sidenav [items]="sidenavItems" [selected]="selectedSidenavItem" (onClick)="onItemClick($event)"></app-sidenav>
+  <app-sidenav
+    [items]="sidenavItems"
+    [selected]="selectedSidenavItem"
+    (onClick)="onItemClick($event)"
+  ></app-sidenav>
 </div>
+
+<div class="outlet"><router-outlet></router-outlet></div>
