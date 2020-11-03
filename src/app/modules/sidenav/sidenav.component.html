@@ -3,9 +3,9 @@
 <div class="items">
   <button
     *ngFor="let item of items"
-    [class.selected]="selected === item.name"
+    [class.selected]="sidenavService.selected === item.name"
     matRipple
-    (click)="onClick.emit(item)"
+    [routerLink]="item.data"
   >
     {{ item.name }}
   </button>

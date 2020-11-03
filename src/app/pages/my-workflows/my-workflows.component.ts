@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SidenavService } from "src/app/modules/sidenav/sidenav.service";
 
 @Component({
   selector: 'app-my-workflows',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyWorkflowsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sidenavService: SidenavService) {
+    this.sidenavService.selected = "My Workflows";
+  }
 
   ngOnInit(): void {
   }

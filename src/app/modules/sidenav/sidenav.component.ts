@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { SidenavService } from "./sidenav.service";
 
 @Component({
   selector: 'app-sidenav',
@@ -7,9 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
   @Input() items: ISidenavItem[] = [];
-  @Input() selected: string = '';
-  @Output() onClick: EventEmitter<ISidenavItem> = new EventEmitter();
-  constructor() {}
+  constructor(public sidenavService: SidenavService) {}
 
   ngOnInit(): void {}
 }

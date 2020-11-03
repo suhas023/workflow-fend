@@ -8,11 +8,10 @@ import { ISidenavItem } from '../../modules/sidenav/sidenav.component';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  selectedSidenavItem = 'Pending Approvals';
   sidenavItems: ISidenavItem[] = [
     {
       name: 'Create',
-      data: 'create',
+      data: '/create',
     },
     {
       name: 'My Workflows',
@@ -20,11 +19,11 @@ export class HomeComponent implements OnInit {
     },
     {
       name: 'Pending Approvals',
-      data: 'pending',
+      data: '/pending',
     },
     {
       name: 'History',
-      data: 'history',
+      data: '/history',
     },
     {
       name: 'Logout',
@@ -35,11 +34,4 @@ export class HomeComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
-
-  onItemClick(item: ISidenavItem) {
-    this.selectedSidenavItem = item.name;
-    if (item.name === 'Logout') {
-      this.authService.logout();
-    }
-  }
 }
