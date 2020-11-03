@@ -25,7 +25,7 @@ export class CreateWorkflowComponent implements OnInit {
   description: string = '';
   levels: ILevel[] = [
     {
-      type: 'any one',
+      approvalType: 'any one',
       userIds: [],
     },
   ];
@@ -69,7 +69,7 @@ export class CreateWorkflowComponent implements OnInit {
 
   addLevel() {
     const newLevel: ILevel = {
-      type: 'any one',
+      approvalType: 'any one',
       userIds: [],
     };
     this.levels = [...this.levels, newLevel];
@@ -83,6 +83,6 @@ export class CreateWorkflowComponent implements OnInit {
 export type ILevelType = 'sequential' | 'round-robin' | 'any one';
 
 export interface ILevel {
-  type: ILevelType;
+  approvalType: ILevelType;
   userIds: string[];
 }

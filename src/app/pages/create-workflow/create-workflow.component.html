@@ -26,7 +26,7 @@
     </div>
     <mat-form-field appearance="outline">
       <mat-label>Approval Type</mat-label>
-      <mat-select [(value)]="level.type">
+      <mat-select [(value)]="level.approvalType">
         <mat-option *ngFor="let type of approvalTypes" [value]="type">
           {{ type }}
         </mat-option>
@@ -40,7 +40,7 @@
             {{ userMap.byId[id].name }}
           </span>
           <span class="symbol" *ngIf="!last">{{
-            approvalSymbols[level.type] | uppercase
+            approvalSymbols[level.approvalType] | uppercase
           }}</span>
         </div>
       </div>
