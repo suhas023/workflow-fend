@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ISidenavItem } from './components/sidenav/sidenav.component';
-import { AuthService } from "../auth/auth.service";
+import { AuthService } from '../../core/auth.service';
+import { ISidenavItem } from '../../modules/sidenav/sidenav.component';
 
 @Component({
   selector: 'app-home',
@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
 
   onItemClick(item: ISidenavItem) {
     this.selectedSidenavItem = item.name;
-    if(item.name === "Logout") {
+    if (item.name === 'Logout') {
       this.authService.logout();
     }
   }
