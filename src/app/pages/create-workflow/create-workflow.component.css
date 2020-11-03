@@ -3,6 +3,22 @@
   display: block;
 }
 
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.create {
+  display: block;
+  margin: 30px auto;;
+  background-color: steelblue;
+  font-size: 30px;
+  padding: 10px 40px;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
 .card {
   padding: 28px;
   display: flex;
@@ -59,10 +75,4 @@ h4 {
 
 .add-level {
   display: block;
-  margin: 0 auto;
-  font-size: 24px;
-  padding: 8px 24px;
-  letter-spacing: 1px;
-  color: #fff;
-  background-color: steelblue;
 }

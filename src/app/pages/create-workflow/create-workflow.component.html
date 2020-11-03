@@ -5,7 +5,7 @@
 
 <ng-container *ngIf="!isLoading && !isError">
   <div class="card">
-    <h4>Details</h4>
+    <div class="header"><h4>Details</h4></div>
     <mat-form-field appearance="outline">
       <mat-label>Title</mat-label>
       <input matInput [(ngModel)]="title" />
@@ -20,7 +20,12 @@
   <div class="card" *ngFor="let level of levels; let index = index">
     <div class="header">
       <h4>Level #{{ index + 1 }}</h4>
-      <button mat-icon-button class="delete-level" color="warn" (click)="deleteLevel(index)">
+      <button
+        mat-icon-button
+        class="delete-level"
+        color="warn"
+        (click)="deleteLevel(index)"
+      >
         <mat-icon>delete</mat-icon>
       </button>
     </div>
@@ -55,4 +60,5 @@
   <button class="add-level" mat-raised-button (click)="addLevel()">
     ADD LEVEL
   </button>
+  <button mat-raised-button (click)="create()" class="create">CREATE</button>
 </ng-container>

@@ -12,6 +12,7 @@ import { UsersListModule } from 'src/app/modules/users-list/users-list.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const routes: Routes = [{ path: '', component: CreateWorkflowComponent }];
 
@@ -30,6 +31,7 @@ const routes: Routes = [{ path: '', component: CreateWorkflowComponent }];
     MatDialogModule,
     MatChipsModule,
     MatIconModule,
+    MatSnackBarModule,
   ],
 })
 export class CreateWorkflowModule {}

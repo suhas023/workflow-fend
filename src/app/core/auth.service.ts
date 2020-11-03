@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { ApiService } from '../core/api.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,7 @@ export class AuthService {
 
   url = 'http://localhost:5002/user';
 
-  constructor(private apiService: ApiService, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   init() {
     this.token = localStorage.getItem('token');
@@ -24,37 +25,33 @@ export class AuthService {
   }
 
   signup(details: ISignupRequest): Observable<IAuthResponse> {
-    return this.apiService
-      .callApi<IAuthResponse>('POST', `${this.url}/signup`, details)
-      .pipe(
-        tap((res) => {
-          this.token = res.data.token;
-          this.name = res.data.name;
-          this.email = res.data.email;
-          this.userId = res.data.userId;
-          localStorage.setItem('token', this.token);
-          localStorage.setItem('email', this.email);
-          localStorage.setItem('userId', this.userId);
-          this.router.navigate(['']);
-        })
-      );
+    return this.http.post<IAuthResponse>(`${this.url}/signup`, details).pipe(
+      tap((res) => {
+        this.token = res.data.token;
+        this.name = res.data.name;
+        this.email = res.data.email;
+        this.userId = res.data.userId;
+        localStorage.setItem('token', this.token);
+        localStorage.setItem('email', this.email);
+        localStorage.setItem('userId', this.userId);
+        this.router.navigate(['']);
+      })
+    );
   }
 
   login(details: ILoginRequest): Observable<IAuthResponse> {
-    return this.apiService
-      .callApi<IAuthResponse>('POST', `${this.url}/login`, details)
-      .pipe(
-        tap((res) => {
-          this.token = res.data.token;
-          this.name = res.data.name;
-          this.email = res.data.email;
-          this.userId = res.data.userId;
-          localStorage.setItem('token', this.token);
-          localStorage.setItem('email', this.email);
-          localStorage.setItem('userId', this.userId);
-          this.router.navigate(['']);
-        })
-      );
+    return this.http.post<IAuthResponse>(`${this.url}/login`, details).pipe(
+      tap((res) => {
+        this.token = res.data.token;
+        this.name = res.data.name;
+        this.email = res.data.email;
+        this.userId = res.data.userId;
+        localStorage.setItem('token', this.token);
+        localStorage.setItem('email', this.email);
+        localStorage.setItem('userId', this.userId);
+        this.router.navigate(['']);
+      })
+    );
   }
 
   logout() {

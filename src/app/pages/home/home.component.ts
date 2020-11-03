@@ -10,7 +10,7 @@ import { ISidenavItem } from '../../modules/sidenav/sidenav.component';
 export class HomeComponent implements OnInit {
   sidenavItems: ISidenavItem[] = [
     {
-      name: 'Create',
+      name: 'New Workflow',
       data: '/create',
     },
     {
