@@ -1,0 +1,52 @@
+.active {
+  background-color:#fff;
+  color: #424242;
+}
+.terminated {
+  background-color: rgb(235, 13, 57);
+  color: #fff;
+}
+
+.executed {
+  background-color: rgb(5, 173, 89);
+  color: #fff;
+}
+
+.card {
+  height: 200px;
+  width: 300px;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 1px 1px 16px 1px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 200ms ease-out;
+  position: relative;
+}
+
+.card:hover {
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+h4 {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0px;
+}
+
+small {
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+mat-icon {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 26px;
+}

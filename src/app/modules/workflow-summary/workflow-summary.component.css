@@ -1,0 +1,90 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.status {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: right;
+  letter-spacing: 1px;
+}
+
+.terminated .status {
+  color: rgb(235, 13, 57);
+}
+
+.executed .status {
+  color: rgb(5, 173, 89);
+}
+
+.level {
+  padding: 20px 0px;
+  border-bottom: 1px solid rgb(167, 167, 167);
+}
+
+h4 {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.users {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.user {
+  margin: 0px 12px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 2px solid #a8a8a8;
+  cursor: default;
+}
+
+.users .blocked,
+.users .pending {
+  color: #424242;
+  background-color: #e0e0e0;
+}
+
+.users .approve {
+  background-color: rgb(5, 173, 89);
+  color: #fff;
+  border: 2px solid rgb(5, 173, 89);
+}
+
+.users .reject,
+.users .rejectAndRemove {
+  background-color: rgb(235, 13, 57);
+  color: #fff;
+  border: 2px solid rgb(235, 13, 57);
+}
+
+.symbol {
+  font-weight: 500;
+  font-size: 18px;
+  color: #424242;
+}
+
+.actions {
+  display: flex;
+  padding: 20px 0px;
+}
+
+button {
+  color: #fff;
+  flex: 1;
+  margin: 0px 2px;
+}
+
+.approve {
+  background-color: rgb(5, 173, 89);
+}
+
+.reject {
+  background-color: rgb(235, 13, 57);
+}

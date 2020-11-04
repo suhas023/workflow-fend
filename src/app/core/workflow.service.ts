@@ -12,17 +12,61 @@ export class WorkflowService {
   create(details: ICreateWorkflowRequest) {
     return this.apiService.callApi('POST', `${this.url}/create`, details);
   }
+
+  getCreatedWorkflows$() {
+    return this.apiService.callApi<IGetCreatedWorkflowsResponse>(
+      'GET',
+      `${this.url}`
+    );
+  }
 }
 
-export type ILevelType = 'sequential' | 'round-robin' | 'any one';
+export type IApprovalAction =
+  | 'blocked'
+  | 'pending'
+  | 'approve'
+  | 'reject'
+  | 'rejectAndRemove';
+export type IApprovalType = 'sequential' | 'round-robin' | 'any one';
+export type ILevelStatus = 'blocked' | 'active' | 'terminated' | 'executed';
+export type IWorkflowStatus = 'active' | 'terminated' | 'executed';
 
-export interface ILevel {
-  approvalType: ILevelType;
+export interface ILevelRequest {
+  approvalType: IApprovalType;
   userIds: string[];
 }
 
 export interface ICreateWorkflowRequest {
   title: string;
   description: string;
-  levels: ILevel[];
+  levels: ILevelRequest[];
+}
+
+export interface IApprovalResponse {
+  user: {
+    name: string;
+    email: string;
+  };
+  action: IApprovalAction;
+}
+
+export interface ILevelResponse {
+  approvalType: IApprovalType;
+  approvals: IApprovalResponse[];
+  status: ILevelStatus;
+}
+
+export interface IWorkflowResponse {
+  createdBy: string;
+  title: string;
+  description: string;
+  status: IWorkflowStatus;
+  levels: ILevelResponse[];
+  currentLevel: number;
+}
+
+export interface IGetCreatedWorkflowsResponse {
+  data: {
+    workflows: IWorkflowResponse[];
+  };
 }

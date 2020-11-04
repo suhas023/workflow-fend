@@ -1,0 +1,32 @@
+<header [ngClass]="workflow.status" mat-dialog-titl>
+  <h1>{{ workflow.title | titlecase }}</h1>
+  <span class="status">{{ workflow.status | uppercase }}</span>
+</header>
+
+<mat-dialog-content>
+  <p>{{ workflow.description }}</p>
+
+  <div class="actions" *ngIf="data.actionable">
+    <button mat-raised-button [mat-dialog-close]="'approve'" class="approve" >APPROVE</button>
+    <button mat-raised-button [mat-dialog-close]="'reject'" class="reject">REJECT</button>
+    <button mat-raised-button [mat-dialog-close]="'rejectAndRemove'" class="reject">REJECT & REMOVE</button>
+  </div>
+
+
+  <div class="levels" *ngIf="!data.actionable">
+    <div class="level" *ngFor="let level of workflow.levels; let index = index">
+      <h4>Level #{{ index }}</h4>
+      {{ level.approvalType | uppercase }}
+      <div class="users">
+        <div *ngFor="let approval of level.approvals; let last = last">
+          <span [ngClass]="['user', approval.action]">
+            {{ approval.user.name }}
+          </span>
+          <span class="symbol" *ngIf="!last">{{
+            approvalSymbols[level.approvalType] | uppercase
+          }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

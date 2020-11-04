@@ -1,1 +1,10 @@
-<p>my-workflows works!</p>
+<app-page-title>My Workflows</app-page-title>
+<p *ngIf="isLoading">Loading...</p>
+<p *ngIf="isError">Error Occurred</p>
+<div class="cards" *ngIf="!isLoading && !isError">
+  <app-workflow-card
+    (click)="openWorkflow(workflow)"
+    [workflow]="workflow"
+    *ngFor="let workflow of workflows"
+  ></app-workflow-card>
+</div>

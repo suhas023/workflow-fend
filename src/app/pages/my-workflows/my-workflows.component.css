@@ -1,0 +1,14 @@
+:host {
+  padding: 36px;
+  display: block;
+}
+
+.cards {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+app-workflow-card {
+  margin: 20px;
+}

@@ -4,7 +4,7 @@ import { UsersListComponent } from 'src/app/modules/users-list/users-list.compon
 import { MatDialog } from '@angular/material/dialog';
 import { UserService, IUserMap } from 'src/app/core/user.service';
 import {
-  ILevel,
+  ILevelRequest,
   WorkflowService,
   ICreateWorkflowRequest,
 } from 'src/app/core/workflow.service';
@@ -30,7 +30,7 @@ export class CreateWorkflowComponent implements OnInit {
 
   title: string = '';
   description: string = '';
-  levels: ILevel[] = [
+  levels: ILevelRequest[] = [
     {
       approvalType: 'any one',
       userIds: [],
@@ -81,7 +81,7 @@ export class CreateWorkflowComponent implements OnInit {
   }
 
   addLevel() {
-    const newLevel: ILevel = {
+    const newLevel: ILevelRequest = {
       approvalType: 'any one',
       userIds: [],
     };

@@ -1,0 +1,14 @@
+<div [ngClass]="['card', workflow.status]" matRipple>
+  <div class="title">
+    <h4>{{ workflow.title | titlecase }}</h4>
+    <small>{{ workflow.status | uppercase }}</small>
+  </div>
+  <p>
+    {{
+      workflow.description.length > 25
+        ? workflow.description.slice(0, 23) + "..."
+        : workflow.description
+    }}
+  </p>
+  <mat-icon>keyboard_arrow_right</mat-icon>
+</div>
