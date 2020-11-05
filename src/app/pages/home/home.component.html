@@ -1,6 +1,7 @@
 <div class="sidenav">
   <app-sidenav
     [items]="sidenavItems"
+    (itemClick)="onItemClick($event)"
   ></app-sidenav>
 </div>
 

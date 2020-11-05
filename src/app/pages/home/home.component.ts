@@ -28,10 +28,15 @@ export class HomeComponent implements OnInit {
     {
       name: 'Logout',
       data: '',
+      callback: true,
     },
   ];
 
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
+
+  onItemClick(item: ISidenavItem) {
+    if (item.name === 'Logout') this.authService.logout();
+  }
 }

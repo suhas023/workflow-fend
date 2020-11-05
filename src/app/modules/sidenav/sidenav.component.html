@@ -6,6 +6,7 @@
     [class.selected]="sidenavService.selected === item.name"
     matRipple
     [routerLink]="item.data"
+    (click)="onItemClick(item)"
   >
     {{ item.name }}
   </button>
