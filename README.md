@@ -1,27 +1,18 @@
-# WorkflowFrontEnd
+# Workflow Front-End
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+This the frontend module of the Workflow project.
+(Backend can be found here: [https://github.com/suhas023/workflow-bend](https://github.com/suhas023/workflow-bend)).
 
-## Development server
+Workflow allows users create different approval process at different levels.
+* Users can create workflows any number of levels of different types (Sequential, Round-robin, Any one). And assign users at each level.
+* Users at each levels can perform different approval actions (Approve, Reject, Reject & Remove from workflow).
+* Users can keep track of approvals given & workflows created in the dashboard.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Deployed Version
+[https://workflow-two.vercel.app/](https://workflow-two.vercel.app/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Local Development server
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Run `npm install` & `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
