@@ -25,6 +25,11 @@ export class PendingApprovalsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.fetchPendingWorkflows();
+  }
+
+  fetchPendingWorkflows() {
+    this.isLoading = true;
     this.approvalService.getPendingApprovals$().subscribe(
       (res) => {
         this.isLoading = false;
@@ -58,6 +63,7 @@ export class PendingApprovalsComponent implements OnInit {
       )
       .subscribe((res) => {
         console.log(res);
+        this.fetchPendingWorkflows();
       });
   }
 }

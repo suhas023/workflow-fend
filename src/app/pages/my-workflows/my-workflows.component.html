@@ -8,3 +8,8 @@
     *ngFor="let workflow of workflows"
   ></app-workflow-card>
 </div>
+
+<div *ngIf="!workflows.length && !isError && !isLoading" class="empty">
+  No Workflows Found
+</div>
+

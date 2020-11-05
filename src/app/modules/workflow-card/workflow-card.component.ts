@@ -8,6 +8,7 @@ import { IWorkflowResponse } from 'src/app/core/workflow.service';
 })
 export class WorkflowCardComponent implements OnInit {
   @Input() workflow: IWorkflowResponse = null;
+  @Input() subtitle?: string = null;
 
   constructor() {}
 

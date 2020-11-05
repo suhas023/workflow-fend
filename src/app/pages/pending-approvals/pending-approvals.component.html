@@ -5,6 +5,11 @@
   <app-workflow-card
     (click)="openWorkflow(approval, index)"
     [workflow]="approval.workflow"
+    [subtitle]="approval.levelIndex + 1"
     *ngFor="let approval of approvals;let index = index"
   ></app-workflow-card>
+</div>
+
+<div *ngIf="!approvals.length && !isError && !isLoading" class="empty">
+  No Pending Workflows Found
 </div>

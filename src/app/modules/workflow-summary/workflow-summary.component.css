@@ -57,11 +57,16 @@ h4 {
   border: 2px solid rgb(5, 173, 89);
 }
 
-.users .reject,
-.users .rejectAndRemove {
+.users .reject {
   background-color: rgb(235, 13, 57);
   color: #fff;
   border: 2px solid rgb(235, 13, 57);
+}
+
+.users .rejectAndRemove {
+  background-color: orange;
+  color: #fff;
+  border: 2px solid orange;
 }
 
 .symbol {

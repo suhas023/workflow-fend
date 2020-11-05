@@ -10,6 +10,7 @@ import {
 } from 'src/app/core/workflow.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from 'src/app/core/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-workflow',
@@ -43,7 +44,8 @@ export class CreateWorkflowComponent implements OnInit {
     private userService: UserService,
     private snackbar: MatSnackBar,
     private workflowService: WorkflowService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     this.sidenavService.selected = 'New Workflow';
   }
@@ -74,7 +76,7 @@ export class CreateWorkflowComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
+      if (!result) return;
       this.levels[index].userIds = [...result];
       this.levels = [...this.levels];
     });
@@ -102,9 +104,16 @@ export class CreateWorkflowComponent implements OnInit {
       description: this.description,
       levels: this.levels,
     };
-    this.workflowService.create(details).subscribe((res) => {
-      console.log(res);
-    });
+    this.workflowService.create(details).subscribe(
+      (res) => {
+        console.log(res);
+        this.snackbar.open('Workflow Created', 'Ok', { duration: 2000 });
+        this.router.navigate(['']);
+      },
+      (err) => {
+        this.snackbar.open('Error Occourred', 'Ok', { duration: 2000 });
+      }
+    );
   }
 
   verify() {
