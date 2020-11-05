@@ -38,6 +38,7 @@ export class PendingApprovalsComponent implements OnInit {
       },
       (err) => {
         this.isError = true;
+        this.isLoading = false;
       }
     );
   }

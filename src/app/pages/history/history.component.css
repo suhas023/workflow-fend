@@ -1,0 +1,26 @@
+:host {
+  padding: 36px;
+  display: block;
+}
+
+.cards {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+app-workflow-card {
+  margin: 20px;
+}
+
+.empty {
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  color: #424242;
+  padding: 100px 60px;
+}

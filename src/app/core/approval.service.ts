@@ -17,6 +17,13 @@ export class ApprovalService {
     );
   }
 
+  getApprovalHistory$() {
+    return this.api.callApi<IPendingApprovalResponse>(
+      'GET',
+      `${this.url}/history`
+    );
+  }
+
   sendApprovalAction$(data: { approvalId: string; action: string }) {
     return this.api.callApi('POST', `${this.url}/action`, data);
   }

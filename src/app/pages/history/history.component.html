@@ -1,0 +1,15 @@
+<app-page-title>History </app-page-title>
+<p *ngIf="isLoading">Loading...</p>
+<p *ngIf="isError">Error Occurred</p>
+<div class="cards" *ngIf="!isLoading && !isError">
+  <app-workflow-card
+    (click)="openWorkflow(approval, index)"
+    [workflow]="approval.workflow"
+    [subtitle]="approval.levelIndex + 1"
+    *ngFor="let approval of approvals;let index = index"
+  ></app-workflow-card>
+</div>
+
+<div *ngIf="!approvals.length && !isError && !isLoading" class="empty">
+  No Pending Workflows Found
+</div>
