@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: "http://localhost:5002"
+  api: 'https://hidden-escarpment-13049.herokuapp.com',
 };
 
 /*
