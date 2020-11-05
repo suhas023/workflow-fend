@@ -1,6 +1,6 @@
 <h2 mat-dialog-title>Select Users</h2>
 <mat-dialog-content class="mat-typography">
-  <p *ngIf="!userMap.allIds">No Users Found</p>
+  <p *ngIf="!userMap.allIds.length">Found 0 Users who can approve</p>
   <mat-selection-list [(ngModel)]="selected">
     <mat-list-option *ngFor="let id of userMap.allIds" [value]="id">
       <div class="item">

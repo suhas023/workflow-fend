@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { IWorkflowResponse } from './workflow.service';
+import  { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApprovalService {
-  url = 'http://localhost:5002/user-approval';
+
+  url = `${environment.api}/user-approval`;
 
   constructor(private api: ApiService) {}
 

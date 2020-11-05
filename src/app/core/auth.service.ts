@@ -4,6 +4,8 @@ import { tap } from 'rxjs/operators';
 import { ApiService } from '../core/api.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import  { environment } from "../../environments/environment";
+
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +16,7 @@ export class AuthService {
   email: string = null;
   userId: string = null;
 
-  url = 'http://localhost:5002/user';
+  url = `${environment.api}/user`;
 
   constructor(private http: HttpClient, private router: Router) {}
 

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
+import  { environment } from "../../environments/environment";
+
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +10,7 @@ export class UserService {
   constructor(private apiService: ApiService) {}
 
   getApprovalUsers$() {
-    const url = 'http://localhost:5002/user/approval-users';
+    const url = `${environment.api}/user/approval-users`;
     return this.apiService.callApi<IGetUserMapResponse>('GET', url);
   }
 }
