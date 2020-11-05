@@ -24,6 +24,13 @@ const routes: Routes = [
             (m) => m.CreateWorkflowModule
           ),
       },
+      {
+        path: 'pending',
+        loadChildren: () =>
+          import('../pending-approvals/pending-approvals.module').then(
+            (m) => m.PendingApprovalsModule
+          ),
+      },
     ],
   },
 ];

@@ -1,0 +1,10 @@
+<app-page-title>Pending Approvals</app-page-title>
+<p *ngIf="isLoading">Loading...</p>
+<p *ngIf="isError">Error Occurred</p>
+<div class="cards" *ngIf="!isLoading && !isError">
+  <app-workflow-card
+    (click)="openWorkflow(approval, index)"
+    [workflow]="approval.workflow"
+    *ngFor="let approval of approvals;let index = index"
+  ></app-workflow-card>
+</div>

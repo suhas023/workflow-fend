@@ -15,7 +15,7 @@
 
   <div class="levels" *ngIf="!data.actionable">
     <div class="level" *ngFor="let level of workflow.levels; let index = index">
-      <h4>Level #{{ index }}</h4>
+      <h4>Level {{ index + 1 }}/{{ workflow.levels.length }}</h4>
       {{ level.approvalType | uppercase }}
       <div class="users">
         <div *ngFor="let approval of level.approvals; let last = last">

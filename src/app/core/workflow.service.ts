@@ -57,6 +57,7 @@ export interface ILevelResponse {
 }
 
 export interface IWorkflowResponse {
+  _id: string;
   createdBy: string;
   title: string;
   description: string;
